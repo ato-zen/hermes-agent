@@ -8067,9 +8067,12 @@ class HermesCLI(CLIAgentSetupMixin, CLICommandsMixin):
                 self._console_print("  Read-only mode already ON.")
                 return
             enable_read_only(session_key)
+            _tools_sorted = sorted(READ_ONLY_WHITELIST)
+            _whitelist_str = ", ".join(_tools_sorted)
             self._console_print(
                 "  \U0001f512 Read-only mode ON — only whitelisted tools allowed."
             )
+            self._console_print(f"  Whitelist ({len(_tools_sorted)}): {_whitelist_str}")
             self._pending_ro_note = "[Read-only mode is now ON — only whitelisted tools are available. Use /ro off to disable.]"
         elif _sub == "off":
             if not _currently:

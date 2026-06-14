@@ -8115,7 +8115,7 @@ class HermesCLI(CLIAgentSetupMixin, CLICommandsMixin):
                 "  \U0001f512 Read-only mode ON — only whitelisted tools allowed."
             )
             self._console_print(f"  Whitelist ({len(_tools_sorted)}): {_whitelist_str}")
-            self._pending_ro_note = "[Read-only mode is now ON — only whitelisted tools are available. Use /ro off to disable.]"
+            self._pending_ro_note = f"[Read-only mode is now ON. Available tools ({len(_tools_sorted)}): {_whitelist_str}. Use /ro off to disable.]"
         elif _sub == "off":
             if not _currently:
                 self._console_print("  Read-only mode already OFF.")
@@ -8140,7 +8140,7 @@ class HermesCLI(CLIAgentSetupMixin, CLICommandsMixin):
                     "  \U0001f512 Read-only mode ON — only whitelisted tools allowed."
                 )
                 self._console_print(f"  Whitelist ({len(_tools_sorted)}): {_whitelist_str}")
-                self._pending_ro_note = "[Read-only mode is now ON — only whitelisted tools are available. Use /ro off to disable.]"
+                self._pending_ro_note = f"[Read-only mode is now ON. Available tools ({len(_tools_sorted)}): {_whitelist_str}. Use /ro off to disable.]"
 
     def _on_reasoning(self, reasoning_text: str):
         """Callback for intermediate reasoning display during tool-call loops."""
